@@ -19,6 +19,10 @@ function toggleTask(task: Task) {
     emits('onToggle', task)
 }
 
+function formatDate(date: Date) {
+    return new Intl.DateTimeFormat('en-US', { dateStyle: 'full' }).format(date);
+}
+
 </script>
 
 <template>
@@ -33,7 +37,7 @@ function toggleTask(task: Task) {
             ></Delete>
         </h3>
         <p>{{ task.description }}</p>
-        <p>{{ task.day.toString() }}</p>
+        <p>{{ formatDate(task.day) }}</p>
     </div>
 </template>
 
