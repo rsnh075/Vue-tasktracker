@@ -38,7 +38,7 @@ onMounted(() => {
     </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .loader {
     margin: 0;
     display: flex;

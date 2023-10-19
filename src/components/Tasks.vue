@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref, watch } from '@vue/runtime-core';
-import { Task } from '@/types/Task';
+import type { Task } from '@/types/Task';
 import TaskItem from '@/components/TaskItem.vue';
 import TaskDetail from '@/components/TaskDetail.vue';
 // import { TASKS } from '../mocks/MockTasks';
@@ -15,7 +15,7 @@ const selectedTask = ref<Task>({
     id: 0,
     name: '',
     description: '',
-    day: '',
+    day: new Date(),
 });
 const colorAddBtn = computed(() => showTask.value ? 'red' : 'green');
 const textAddBtn = computed(() => showTask.value ? 'Close' : 'Add');
@@ -40,7 +40,7 @@ function addTask() {
     selectedTask.value = {
         name: '',
         description: '',
-        day: '',
+        day: new Date(),
     };
     showTask.value = !showTask.value;
 }

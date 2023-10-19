@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { Task } from '@/types/Task';
+import type { Task } from '@/types/Task';
 import { Delete } from 'mdue';
 
-const props = defineProps({
+defineProps({
     task: {
         type: Object as () => Task,
         required: true
@@ -33,17 +33,20 @@ function toggleTask(task: Task) {
             ></Delete>
         </h3>
         <p>{{ task.description }}</p>
-        <p>{{ task.day }}</p>
+        <p>{{ task.day.toString() }}</p>
     </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .task {
   background: #41B883;
   color: rgb(239, 250, 243);
   margin: 5px;
   padding: 10px 20px;
   cursor: pointer;
+  h3, p {
+    margin: 5px 0;
+  }
 }
 
 .task.selected {
